@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Movie Theater{% endblock title %}
+{% block content %}
+    <h3>Lista de Pelis</h3>
+
+    <div class="row">
+        {% for movie in movies %}
+        <div class="col-sm-4">
+            <br>
+            <div class="card" style="width: 100%;">
+                <img src="{{movie.picture.url}}" class="card-img-top" alt="logoscinta">
+                <div class="card-body">
+                  <h5 class="card-title">{{ movie | capfirst }}</h5>
+                  <p class="card-text"> {{movie}}</p>
+                  <a href="movie/{{movie.id}}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
+                </div>
+              </div>
+          </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
